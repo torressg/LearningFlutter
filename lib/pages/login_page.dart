@@ -24,21 +24,40 @@ class _LoginPageState extends State<LoginPage> {
               Container(
                 width: 150,
                 height: 150,
-                color: Colors.amber[600],
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: Colors.amber[600],
+                ),
+                child: const Icon(
+                  Icons.person,
+                  size: 130,
+                ),
               ),
               Container(
-                margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                margin:
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                 color: Colors.amber[800],
                 alignment: Alignment.center,
                 height: 50,
                 child: const Text("Informe seu e-mail"),
               ),
               Container(
-                margin: EdgeInsets.symmetric(horizontal: 10),
+                margin: const EdgeInsets.symmetric(horizontal: 10),
                 color: Colors.amber[800],
                 alignment: Alignment.center,
                 height: 50,
                 child: const Text("Informe sua senha"),
+              ),
+              Container(
+                margin:
+                    const EdgeInsets.symmetric(horizontal: 70, vertical: 10),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: Colors.teal[200],
+                ),
+                alignment: Alignment.center,
+                height: 50,
+                child: const Text("Entrar"),
               )
             ],
           ),
