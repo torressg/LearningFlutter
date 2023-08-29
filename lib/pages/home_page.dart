@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:learning_flutter/service/random_number_gerator.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -14,8 +15,18 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Estou louco")),
-      body: Center(child: Text(number.toString())),
+      appBar: AppBar(
+          title: Text(
+        "Estou louco",
+        style: GoogleFonts.pacifico(),
+      )),
+      body: Center(
+          child: Text(
+        number.toString(),
+        style: GoogleFonts.aBeeZee(
+          fontSize: 30,
+        ),
+      )),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.cloud_circle),
         onPressed: () {
