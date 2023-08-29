@@ -41,6 +41,23 @@ class _HomePageState extends State<HomePage> {
                 style: GoogleFonts.aBeeZee(
                   fontSize: 18,
                 )),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Text("10",
+                    style: GoogleFonts.aBeeZee(
+                      fontSize: 18,
+                    )),
+                Text("20",
+                    style: GoogleFonts.aBeeZee(
+                      fontSize: 18,
+                    )),
+                Text("30",
+                    style: GoogleFonts.aBeeZee(
+                      fontSize: 18,
+                    )),
+              ],
+            ),
             ButtonBar(
               alignment: MainAxisAlignment.center,
               children: [
