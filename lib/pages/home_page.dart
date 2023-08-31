@@ -65,7 +65,7 @@ class _HomePageState extends State<HomePage> {
                     child: const Text("Teste"),
                     onPressed: () {
                       setState(() {
-                        qtyClicks = quantityClicks.countClicks();
+                        qtyClicks = QuantityClicks.countClicks();
                         number = RandomNumberGerator.generateRandomNumber(200);
                       });
                     }),
@@ -78,7 +78,7 @@ class _HomePageState extends State<HomePage> {
         child: const Icon(Icons.cloud_circle),
         onPressed: () {
           setState(() {
-            qtyClicks = quantityClicks.countClicks();
+            qtyClicks = QuantityClicks.countClicks();
             number = RandomNumberGerator.generateRandomNumber(200);
           });
         },
