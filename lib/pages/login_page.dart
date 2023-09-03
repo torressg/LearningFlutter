@@ -132,7 +132,7 @@ class _LoginPageState extends State<LoginPage> {
                                 const SnackBar(
                                     content:
                                         Text("Login efetuado com sucesso!")));
-                            Navigator.push(
+                            Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) => HomePage()));
