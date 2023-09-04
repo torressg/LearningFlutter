@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learning_flutter/repositories/linguagens_repository.dart';
 import 'package:learning_flutter/repositories/nivel_repository.dart';
 
 class DadosCadPage extends StatefulWidget {
@@ -16,12 +17,16 @@ class _DadosCadPageState extends State<DadosCadPage> {
   TextEditingController dataNascController = TextEditingController(text: "");
   DateTime? dataNascimento;
   String nivelExp = "";
+  List lingUtilizadas = [];
+  double pretencaoSalarial = 0;
 
   var niveis = [];
+  var linguagens = [];
 
   @override
   void initState() {
     niveis = NivelRepository().retornaNiveis();
+    linguagens = LingRepository().retornaLing();
     super.initState();
   }
 
@@ -43,8 +48,7 @@ class _DadosCadPageState extends State<DadosCadPage> {
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: ListView(
           children: [
             returnText("Nome"),
             TextField(
@@ -83,6 +87,39 @@ class _DadosCadPageState extends State<DadosCadPage> {
                           print(nivelExp);
                         }))
                     .toList()),
+            returnText("Linguagens utilizadas"),
+            Column(
+                children: linguagens
+                    .map((linguagem) => CheckboxListTile(
+                        title: Text(linguagem),
+                        value: lingUtilizadas.contains(linguagem),
+                        onChanged: (value) {
+                          if (value!) {
+                            setState(() {
+                              lingUtilizadas.add(linguagem);
+                            });
+                          } else {
+                            setState(() {
+                              lingUtilizadas.remove(linguagem);
+                            });
+                          }
+                          setState(() {});
+                        }))
+                    .toList()),
+            returnText("Pretenção Salarial"),
+            Text(
+              "R\$ ${pretencaoSalarial.round()}",
+              style: TextStyle(fontSize: 16),
+            ),
+            Slider(
+                min: 0,
+                max: 10000,
+                value: pretencaoSalarial,
+                onChanged: (double value) {
+                  setState(() {
+                    pretencaoSalarial = value;
+                  });
+                }),
             TextButton(
               onPressed: () {
                 print(nomeController.text);
