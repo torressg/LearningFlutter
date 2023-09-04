@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learning_flutter/repositories/nivel_repository.dart';
 
 class DadosCadPage extends StatefulWidget {
   final String texto;
@@ -14,11 +15,23 @@ class _DadosCadPageState extends State<DadosCadPage> {
   TextEditingController nomeController = TextEditingController(text: "");
   TextEditingController dataNascController = TextEditingController(text: "");
   DateTime? dataNascimento;
+  String nivelExp = "";
 
-  Text returnText(String texto) {
-    return Text(
-      texto,
-      style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
+  var niveis = [];
+
+  @override
+  void initState() {
+    niveis = NivelRepository().retornaNiveis();
+    super.initState();
+  }
+
+  Widget returnText(String texto) {
+    return Container(
+      margin: const EdgeInsets.only(top: 10),
+      child: Text(
+        texto,
+        style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
+      ),
     );
   }
 
@@ -34,9 +47,8 @@ class _DadosCadPageState extends State<DadosCadPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             returnText("Nome"),
-            const TextField(),
-            const SizedBox(
-              height: 12,
+            TextField(
+              controller: nomeController,
             ),
             returnText("Data de Nascimento"),
             TextField(
@@ -55,6 +67,28 @@ class _DadosCadPageState extends State<DadosCadPage> {
                   });
                 }
               },
+            ),
+            returnText("Nível de Experiência"),
+            Column(
+                children: niveis
+                    .map((nivel) => RadioListTile(
+                        selected: nivelExp == nivel,
+                        title: Text(nivel.toString()),
+                        value: nivel.toString(),
+                        groupValue: nivelExp,
+                        onChanged: (value) {
+                          setState(() {
+                            nivelExp = value.toString();
+                          });
+                          print(nivelExp);
+                        }))
+                    .toList()),
+            TextButton(
+              onPressed: () {
+                print(nomeController.text);
+                print(dataNascimento);
+              },
+              child: const Text("Salvar"),
             )
           ],
         ),
