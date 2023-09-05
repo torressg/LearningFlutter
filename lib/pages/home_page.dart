@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:learning_flutter/pages/dados_cadastrais.dart';
-import 'package:learning_flutter/service/quantity_clicks.dart';
-import 'package:learning_flutter/service/random_number_gerator.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -82,7 +79,7 @@ class _HomePageState extends State<HomePage> {
               controller.jumpToPage(value);
             },
             currentIndex: posicaoPagina,
-            items: [
+            items: const [
               BottomNavigationBarItem(label: "Ambar", icon: Icon(Icons.home)),
               BottomNavigationBarItem(label: "Blue", icon: Icon(Icons.home)),
             ]),

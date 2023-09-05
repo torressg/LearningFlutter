@@ -135,7 +135,7 @@ class _LoginPageState extends State<LoginPage> {
                             Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => HomePage()));
+                                    builder: (context) => const HomePage()));
                           } else {
                             ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
@@ -147,7 +147,7 @@ class _LoginPageState extends State<LoginPage> {
                                 RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(10))),
                             backgroundColor: MaterialStateProperty.all(
-                                Color.fromARGB(255, 155, 0, 47))),
+                                const Color.fromARGB(255, 155, 0, 47))),
                         child: const Text(
                           "ENTRAR",
                           style: TextStyle(
