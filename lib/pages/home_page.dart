@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:learning_flutter/pages/dados_cadastrais.dart';
+import 'package:learning_flutter/shared/widgets/custom_drawer.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -16,48 +17,7 @@ class _HomePageState extends State<HomePage> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(title: const Text("Testes")),
-        drawer: Drawer(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                InkWell(
-                  child: const Text('Dados de cadastro'),
-                  onTap: () => {
-                    Navigator.pop(context),
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const DadosCadPage(
-                                texto: "Meus dados",
-                                dados: ["Nome", "Data de Nascimento"])))
-                  },
-                ),
-                const Divider(),
-                const SizedBox(
-                  height: 10,
-                ),
-                InkWell(
-                  child: const Text('Termos de uso e privacidade'),
-                  onTap: () => {},
-                ),
-                const Divider(),
-                const SizedBox(
-                  height: 10,
-                ),
-                InkWell(
-                  child: const Text('Configurações'),
-                  onTap: () => {},
-                ),
-                const Divider(),
-                const SizedBox(
-                  height: 10,
-                )
-              ],
-            ),
-          ),
-        ),
+        drawer: const CustomDrawer(),
         body: PageView(
           controller: controller,
           onPageChanged: (value) {
