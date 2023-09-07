@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:learning_flutter/pages/dados_cadastrais.dart';
 import 'package:learning_flutter/shared/widgets/custom_drawer.dart';
 
 class HomePage extends StatefulWidget {
