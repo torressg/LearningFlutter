@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:learning_flutter/pages/dados_cadastrais.dart';
+import 'package:learning_flutter/pages/login_page.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({super.key});
@@ -136,7 +137,54 @@ class CustomDrawer extends StatelessWidget {
           const Divider(),
           const SizedBox(
             height: 10,
-          )
+          ),
+          InkWell(
+            child: Container(
+              padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+              width: double.infinity,
+              child: const Row(
+                children: [
+                  Icon(Icons.exit_to_app),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Text('Sair'),
+                ],
+              ),
+            ),
+            onTap: () => {
+              showDialog(
+                  context: context,
+                  builder: (BuildContext buildContext) {
+                    return AlertDialog(
+                      title: Text(
+                        "Você deseja sair?",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      content: Wrap(
+                        children: [
+                          Text("Ao sair, o que não foi salvo será perdido.")
+                        ],
+                      ),
+                      actions: [
+                        TextButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: Text("Não")),
+                        TextButton(
+                            onPressed: () {
+                              Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const LoginPage()));
+                            },
+                            child: Text("Sim"))
+                      ],
+                    );
+                  })
+            },
+          ),
         ],
       ),
     );
