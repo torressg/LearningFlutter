@@ -11,27 +11,25 @@ class ListViewH extends StatefulWidget {
 class _ListViewHState extends State<ListViewH> {
   @override
   Widget build(BuildContext context) {
-    return ListView(
+    return Scaffold(
+        body: Column(
       children: [
-        ListTile(
-          leading: Image.asset(AppImages.user1),
-          title: Text("Gilberto"),
-          subtitle: Text("Esse sou eu"),
-          trailing: PopupMenuButton<String>(
-            onSelected: (menu) {},
-            itemBuilder: (BuildContext bc) {
-              return <PopupMenuEntry<String>>[
-                PopupMenuItem<String>(value: "menu1", child: Text("Opção 1")),
-                PopupMenuItem<String>(value: "menu2", child: Text("Opção 2")),
-                PopupMenuItem<String>(value: "menu2", child: Text("Opção 3")),
-              ];
-            },
+        Expanded(
+          child: ListView(
+            scrollDirection: Axis.horizontal,
+            children: [
+              Card(
+                elevation: 7,
+                child: Image.asset(AppImages.image1),
+              ),
+              Card(
+                elevation: 7,
+                child: Image.asset(AppImages.image2),
+              ),
+            ],
           ),
-          isThreeLine: true,
         ),
-        Image.asset(AppImages.user1),
-        Image.asset(AppImages.user2)
       ],
-    );
+    ));
   }
 }
