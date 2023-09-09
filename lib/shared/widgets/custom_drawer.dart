@@ -157,11 +157,11 @@ class CustomDrawer extends StatelessWidget {
                   context: context,
                   builder: (BuildContext buildContext) {
                     return AlertDialog(
-                      title: Text(
+                      title: const Text(
                         "Você deseja sair?",
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
-                      content: Wrap(
+                      content: const Wrap(
                         children: [
                           Text("Ao sair, o que não foi salvo será perdido.")
                         ],
@@ -171,7 +171,7 @@ class CustomDrawer extends StatelessWidget {
                             onPressed: () {
                               Navigator.pop(context);
                             },
-                            child: Text("Não")),
+                            child: const Text("Não")),
                         TextButton(
                             onPressed: () {
                               Navigator.pushReplacement(
@@ -179,7 +179,7 @@ class CustomDrawer extends StatelessWidget {
                                   MaterialPageRoute(
                                       builder: (context) => const LoginPage()));
                             },
-                            child: Text("Sim"))
+                            child: const Text("Sim"))
                       ],
                     );
                   })

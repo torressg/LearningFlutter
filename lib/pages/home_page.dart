@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:learning_flutter/pages/card_page.dart';
+import 'package:learning_flutter/pages/image_assets.dart';
+import 'package:learning_flutter/pages/list_view_h.dart';
 import 'package:learning_flutter/shared/widgets/custom_drawer.dart';
 
 class HomePage extends StatefulWidget {
@@ -26,13 +28,9 @@ class _HomePageState extends State<HomePage> {
             });
           },
           children: [
-            CardPage(),
-            Container(
-              color: Colors.amber,
-            ),
-            Container(
-              color: Colors.blue,
-            )
+            const CardPage(),
+            const ImageAssetsPage(),
+            const ListViewH()
           ],
         ),
         bottomNavigationBar: BottomNavigationBar(

@@ -18,9 +18,10 @@ class CardDetailPage extends StatelessWidget {
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  icon: Icon(Icons.close)),
+                  icon: const Icon(Icons.close)),
               Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
                   child: Row(
                     children: [
                       Expanded(
@@ -28,7 +29,7 @@ class CardDetailPage extends StatelessWidget {
                           children: [
                             Text(
                               cardDetail.title,
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontSize: 20, fontWeight: FontWeight.bold),
                             ),
                             Text(cardDetail.text)
